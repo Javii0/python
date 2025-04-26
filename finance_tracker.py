@@ -32,13 +32,13 @@ class CSV:
     def get_transactions(cls, start_date, end_date):
         df = pd.read_csv(cls.CSV_FILE)
         df["date"] = pd.to_datetime(df["date"], format = CSV.FORMAT)
-        start_date= datetime.strptime(start_date,CSV.FORMAT)
-        end_date= datetime.strptime(end_date,CSV.FORMAT)
+        start_date = datetime.strptime(start_date,CSV.FORMAT)
+        end_date = datetime.strptime(end_date,CSV.FORMAT)
 
         mask = (df["date"] >= start_date) & (df["date"] <= end_date)
         filtered_df = df.loc[mask]
 
-        if filtered_df.empty:
+        if filtered_df.empty:   
             print("No transaction found")
         else:
             print(f"Transaction from {start_date.strftime(CSV.FORMAT)} to {end_date.strftime(CSV.FORMAT)}")
@@ -46,10 +46,10 @@ class CSV:
 
             total_income = filtered_df[filtered_df["category"] == "Income"][
                 "amount"
-                ].sum()
+            ].sum()
             total_expense = filtered_df[filtered_df["category"] == "Expense"][
                 "amount"
-                ].sum()
+            ].sum()
             print("\nSummary: ")
             print(f"Total Income: ${total_income:.2f}")
             print(f"Total Expanse: ${total_expense:.2f}")

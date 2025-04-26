@@ -36,4 +36,3 @@ def get_category():
 def get_description():
     return input("Enter Description (optional): ")
 
-print("Hello")
