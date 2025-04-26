@@ -1,8 +1,7 @@
 import pandas as pd
 import csv
 from datetime import datetime
-from FinanceDataEntry import get_amount, get_category, get_date, get_description    
-
+from FinanceDataEntry import get_date, get_amount, get_category, get_description
 class CSV:
     CSV_FILE = "finance_data.csv"
     COLUMNS = ["date", "amount", "category", "description"]
@@ -35,7 +34,7 @@ def add():
      amount = get_amount()
      category = get_category()
      description = get_description()
-     CSV.add_entry(date, amount, category, description)
+     CSV.add_entry(date, amount, category, description)         
  
 add()
 
